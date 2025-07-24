@@ -1,6 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
+/* Custom color definitions for Tailwind CSS v4 */
+:root {
+  --color-primary-600: #ea580c;
+  --color-secondary-50: #f0fdf4;
+  --color-secondary-100: #dcfce7;
+  --color-secondary-600: #16a34a;
+  --color-secondary-800: #166534;
+  --color-secondary-900: #14532d;
+}
+
 body {
   font-family: 'Inter', system-ui, sans-serif;
   background-color: #fafafa;

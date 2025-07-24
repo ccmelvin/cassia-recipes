@@ -30,7 +30,7 @@ export const mockRecipes: Recipe[] = [
     prepTime: 30,
     cookTime: 25,
     servings: 12,
-    difficulty: 'Medium',
+    difficulty: 'Hard',
     ingredients: [
       { amount: '3', unit: 'cups', ingredient: 'all-purpose flour' },
       { amount: '1/4', unit: 'cup', ingredient: 'granulated sugar' },

@@ -113,7 +113,7 @@ export default function Home() {
               id="sort"
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as 'recent' | 'title' | 'time')}
-              className="text-sm border border-gray-300 rounded-md px-3 py-1 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              className="text-sm border border-gray-300 rounded-md px-3 py-1 focus:ring-2 focus:ring-orange-500 focus:border-transparent"
             >
               <option value="recent">Most Recent</option>
               <option value="title">Title A-Z</option>

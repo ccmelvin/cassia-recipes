@@ -84,7 +84,7 @@ export default function RecipePage({ params }: RecipePageProps) {
         <div className="no-print mb-6">
           <Link 
             href="/" 
-            className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium"
+            className="inline-flex items-center text-orange-600 hover:text-orange-700 font-medium"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to recipes
@@ -111,7 +111,7 @@ export default function RecipePage({ params }: RecipePageProps) {
             <div className="flex justify-between items-start mb-4">
               <div className="flex-1">
                 <div className="mb-2">
-                  <span className="text-sm font-medium text-primary-600 uppercase tracking-wide">
+                  <span className="text-sm font-medium text-orange-600 uppercase tracking-wide">
                     {recipe.category}
                   </span>
                 </div>
@@ -185,7 +185,7 @@ export default function RecipePage({ params }: RecipePageProps) {
                 <div className="text-sm text-gray-500">Difficulty</div>
                 <div className={`font-semibold ${
                   recipe.difficulty === 'Easy' 
-                    ? 'text-secondary-600'
+                    ? 'text-green-600'
                     : recipe.difficulty === 'Medium'
                     ? 'text-yellow-600'
                     : 'text-red-600'
@@ -217,7 +217,7 @@ export default function RecipePage({ params }: RecipePageProps) {
                 <ul className="space-y-2">
                   {recipe.ingredients.map((ingredient, index) => (
                     <li key={index} className="flex items-start">
-                      <span className="inline-block w-2 h-2 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span className="inline-block w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       <span>
                         <strong>{adjustIngredientAmount(ingredient.amount)} {ingredient.unit}</strong> {ingredient.ingredient}
                       </span>
@@ -232,7 +232,7 @@ export default function RecipePage({ params }: RecipePageProps) {
                 <ol className="space-y-4">
                   {recipe.instructions.map((instruction, index) => (
                     <li key={index} className="flex items-start">
-                      <span className="inline-flex items-center justify-center w-6 h-6 bg-primary-500 text-white text-sm font-medium rounded-full mr-3 flex-shrink-0 mt-0.5">
+                      <span className="inline-flex items-center justify-center w-6 h-6 bg-orange-500 text-white text-sm font-medium rounded-full mr-3 flex-shrink-0 mt-0.5">
                         {index + 1}
                       </span>
                       <span className="text-gray-700">{instruction}</span>

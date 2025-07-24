@@ -52,8 +52,8 @@ export default function RecipeFilters({
               onClick={() => onCategoryChange(category)}
               className={`px-3 py-2 text-sm rounded-full border transition-colors ${
                 selectedCategory === category
-                  ? 'bg-primary-500 text-white border-primary-500'
-                  : 'bg-white text-gray-700 border-gray-300 hover:border-primary-300 hover:bg-primary-50'
+                  ? 'bg-orange-500 text-white border-orange-500'
+                  : 'bg-white text-gray-700 border-gray-300 hover:border-orange-300 hover:bg-orange-50'
               }`}
             >
               {category}
@@ -72,8 +72,8 @@ export default function RecipeFilters({
               onClick={() => onTagToggle(tag)}
               className={`px-3 py-2 text-sm rounded-full border transition-colors ${
                 selectedTags.includes(tag)
-                  ? 'bg-secondary-500 text-white border-secondary-500'
-                  : 'bg-white text-gray-700 border-gray-300 hover:border-secondary-300 hover:bg-secondary-50'
+                  ? 'bg-green-500 text-white border-green-500'
+                  : 'bg-white text-gray-700 border-gray-300 hover:border-green-300 hover:bg-green-50'
               }`}
             >
               {tag}
@@ -84,7 +84,7 @@ export default function RecipeFilters({
         {allTags.length > 12 && (
           <button
             onClick={() => setShowAllTags(!showAllTags)}
-            className="text-sm text-primary-600 hover:text-primary-700 font-medium"
+            className="text-sm text-orange-600 hover:text-orange-700 font-medium"
           >
             {showAllTags ? 'Show less' : `Show ${allTags.length - 12} more tags`}
           </button>
@@ -96,11 +96,11 @@ export default function RecipeFilters({
         <div className="mt-4 pt-4 border-t border-gray-200">
           <div className="flex flex-wrap gap-2">
             {selectedCategory !== 'All' && (
-              <span className="inline-flex items-center px-2 py-1 text-xs bg-primary-100 text-primary-800 rounded-full">
+              <span className="inline-flex items-center px-2 py-1 text-xs bg-orange-100 text-orange-800 rounded-full">
                 Category: {selectedCategory}
                 <button
                   onClick={() => onCategoryChange('All')}
-                  className="ml-1 hover:text-primary-900"
+                  className="ml-1 hover:text-orange-900"
                 >
                   <X className="h-3 w-3" />
                 </button>
@@ -109,12 +109,12 @@ export default function RecipeFilters({
             {selectedTags.map((tag) => (
               <span
                 key={tag}
-                className="inline-flex items-center px-2 py-1 text-xs bg-secondary-100 text-secondary-800 rounded-full"
+                className="inline-flex items-center px-2 py-1 text-xs bg-green-100 text-green-800 rounded-full"
               >
                 {tag}
                 <button
                   onClick={() => onTagToggle(tag)}
-                  className="ml-1 hover:text-secondary-900"
+                  className="ml-1 hover:text-green-900"
                 >
                   <X className="h-3 w-3" />
                 </button>

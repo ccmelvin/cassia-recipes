@@ -11,11 +11,17 @@ interface HeaderProps {
 export default function Header({ onSearch }: HeaderProps) {
   const [searchQuery, setSearchQuery] = useState('');
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setSearchQuery(value);
+    if (onSearch) {
+      onSearch(value);
+    }
+  };
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    if (onSearch) {
-      onSearch(searchQuery);
-    }
+    // Form submission is handled by the input change now
   };
 
   return (
@@ -24,7 +30,7 @@ export default function Header({ onSearch }: HeaderProps) {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <ChefHat className="h-8 w-8 text-primary-500" />
+            <ChefHat className="h-8 w-8 text-orange-500" />
             <span className="text-xl font-bold text-gray-900">Cassia Recipes</span>
           </Link>
 
@@ -37,8 +43,8 @@ export default function Header({ onSearch }: HeaderProps) {
                   type="text"
                   placeholder="Search recipes, ingredients, or tags..."
                   value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  onChange={handleInputChange}
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                 />
               </div>
             </form>
@@ -48,19 +54,19 @@ export default function Header({ onSearch }: HeaderProps) {
           <nav className="flex items-center space-x-6">
             <Link 
               href="/" 
-              className="text-gray-700 hover:text-primary-500 font-medium transition-colors"
+              className="text-gray-700 hover:text-orange-500 font-medium transition-colors"
             >
               Home
             </Link>
             <Link 
               href="/categories" 
-              className="text-gray-700 hover:text-primary-500 font-medium transition-colors"
+              className="text-gray-700 hover:text-orange-500 font-medium transition-colors"
             >
               Categories
             </Link>
             <Link 
               href="/about" 
-              className="text-gray-700 hover:text-primary-500 font-medium transition-colors"
+              className="text-gray-700 hover:text-orange-500 font-medium transition-colors"
             >
               About
             </Link>

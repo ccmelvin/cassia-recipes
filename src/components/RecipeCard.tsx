@@ -33,7 +33,7 @@ export default function RecipeCard({ recipe }: RecipeCardProps) {
           <div className="absolute top-3 right-3">
             <span className={`px-2 py-1 text-xs font-medium rounded-full ${
               recipe.difficulty === 'Easy' 
-                ? 'bg-secondary-100 text-secondary-800'
+                ? 'bg-green-100 text-green-800'
                 : recipe.difficulty === 'Medium'
                 ? 'bg-yellow-100 text-yellow-800'
                 : 'bg-red-100 text-red-800'
@@ -47,7 +47,7 @@ export default function RecipeCard({ recipe }: RecipeCardProps) {
         <div className="p-4">
           {/* Category */}
           <div className="mb-2">
-            <span className="text-xs font-medium text-primary-600 uppercase tracking-wide">
+            <span className="text-xs font-medium text-orange-600 uppercase tracking-wide">
               {recipe.category}
             </span>
           </div>
