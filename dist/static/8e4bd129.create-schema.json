@@ -1,0 +1,418 @@
+[
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "title",
+        "type": "string",
+        "title": "Recipe Title"
+      },
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "rows": 3,
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Breakfast",
+              "value": "Breakfast"
+            },
+            {
+              "title": "Salads",
+              "value": "Salads"
+            },
+            {
+              "title": "Main Dishes",
+              "value": "Main Dishes"
+            },
+            {
+              "title": "Desserts",
+              "value": "Desserts"
+            },
+            {
+              "title": "Appetizers",
+              "value": "Appetizers"
+            },
+            {
+              "title": "Soups",
+              "value": "Soups"
+            },
+            {
+              "title": "Beverages",
+              "value": "Beverages"
+            }
+          ]
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "Breakfast",
+                  "Salads",
+                  "Main Dishes",
+                  "Desserts",
+                  "Appetizers",
+                  "Soups",
+                  "Beverages"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "category",
+        "type": "string"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Easy",
+              "value": "Easy"
+            },
+            {
+              "title": "Medium",
+              "value": "Medium"
+            },
+            {
+              "title": "Hard",
+              "value": "Hard"
+            }
+          ]
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "Easy",
+                  "Medium",
+                  "Hard"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "difficulty",
+        "type": "string",
+        "title": "Difficulty Level"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 0
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "prepTime",
+        "type": "number",
+        "title": "Prep Time (minutes)"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 0
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "cookTime",
+        "type": "number",
+        "title": "Cook Time (minutes)"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "servings",
+        "type": "number"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "amount",
+                "type": "string"
+              },
+              {
+                "name": "unit",
+                "type": "string"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "ingredient",
+                "type": "string"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "ingredients",
+        "type": "array"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      },
+                      {
+                        "flag": "min",
+                        "constraint": 1
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "step",
+                "type": "number",
+                "title": "Step Number"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "instruction",
+                "type": "text"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "instructions",
+        "type": "array"
+      },
+      {
+        "options": {
+          "list": [
+            "vegetarian",
+            "vegan",
+            "gluten-free",
+            "dairy-free",
+            "nut-free",
+            "quick",
+            "easy",
+            "healthy",
+            "comfort-food",
+            "spicy",
+            "sweet",
+            "savory",
+            "italian",
+            "asian",
+            "mexican",
+            "mediterranean",
+            "american",
+            "indian",
+            "thai",
+            "chinese",
+            "baked",
+            "grilled",
+            "fried",
+            "steamed",
+            "raw"
+          ]
+        },
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "tags",
+        "type": "array"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "of": [
+          {
+            "options": {
+              "hotspot": true
+            },
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "alt",
+                "type": "string",
+                "title": "Alt Text"
+              }
+            ],
+            "type": "image"
+          }
+        ],
+        "name": "images",
+        "type": "array",
+        "title": "Recipe Images"
+      },
+      {
+        "rows": 4,
+        "name": "notes",
+        "type": "text",
+        "title": "Chef Notes"
+      },
+      {
+        "initialValue": "Cassia",
+        "name": "author",
+        "type": "string"
+      },
+      {
+        "name": "publishedAt",
+        "type": "datetime"
+      }
+    ],
+    "name": "recipe",
+    "type": "document"
+  }
+]

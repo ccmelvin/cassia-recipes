@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Clock, Users, ChefHat } from 'lucide-react';
-import { Recipe } from '@/data/mockRecipes';
+import { Recipe } from '@/types/sanity';
+import { urlFor } from '@/lib/sanity';
 
 interface RecipeCardProps {
   recipe: Recipe;
@@ -11,14 +12,14 @@ export default function RecipeCard({ recipe }: RecipeCardProps) {
   const totalTime = recipe.prepTime + recipe.cookTime;
 
   return (
-    <Link href={`/recipe/${recipe.id}`} className="block">
+    <Link href={`/recipe/${recipe.slug.current}`} className="block">
       <div className="recipe-card overflow-hidden">
         {/* Image */}
         <div className="relative h-48 bg-gray-200">
-          {recipe.images.length > 0 ? (
+          {recipe.images && recipe.images.length > 0 ? (
             <Image
-              src={recipe.images[0]}
-              alt={recipe.title}
+              src={urlFor(recipe.images[0]).width(800).height(600).url()}
+              alt={recipe.images[0].alt || recipe.title}
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -58,9 +59,11 @@ export default function RecipeCard({ recipe }: RecipeCardProps) {
           </h3>
 
           {/* Description */}
-          <p className="text-gray-600 text-sm mb-3 line-clamp-2">
-            {recipe.description}
-          </p>
+          {recipe.description && (
+            <p className="text-gray-600 text-sm mb-3 line-clamp-2">
+              {recipe.description}
+            </p>
+          )}
 
           {/* Meta Info */}
           <div className="flex items-center justify-between text-sm text-gray-500 mb-3">
